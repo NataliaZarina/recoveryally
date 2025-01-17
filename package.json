@@ -2,6 +2,7 @@
   "name": "recoveryally",
   "version": "1.0.0",
   "private": true,
+  "homepage": ".",
   "engines": {
     "node": "18.x",
     "npm": "9.x"
