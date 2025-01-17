@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Home, Plus, FileText, ChevronRight, X, Info } from 'lucide-react';
+import { Plus, FileText, ChevronRight } from 'lucide-react';
 
 const App = () => {
   // State management
