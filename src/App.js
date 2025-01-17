@@ -17,66 +17,76 @@ const App = () => {
 
   // Predefined room types
   const rooms = [
-    'Living Room',
-    'Kitchen',
-    'Master Bedroom',
-    'Bedrooms',
-    'Bathrooms',
-    'Garage',
-    'Dining Room',
-    'Office',
-    'Other'
+    'Living Room', 'Kitchen', 'Master Bedroom', 'Bedrooms', 'Bathrooms', 
+    'Garage', 'Dining Room', 'Office', 'Other'
   ];
 
   // Common item categories
   const categories = [
-    'Furniture',
-    'Electronics',
-    'Appliances',
-    'Clothing',
-    'Jewelry & Watches',
-    'Art & Decor',
-    'Tools & Equipment',
-    'Other'
+    'Furniture', 'Electronics', 'Appliances', 'Clothing', 
+    'Jewelry & Watches', 'Art & Decor', 'Tools & Equipment', 'Other'
   ];
+
+  // Function to export data as CSV
+  const exportData = () => {
+    const csv = [
+      ['Room', 'Item', 'Category', 'Estimated Value', 'Notes'],
+      ...items.map(item => [
+        item.room, item.name, item.category, item.estimatedValue, item.notes
+      ])
+    ].map(row => row.join(',')).join('\n');
+
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'fire-loss-inventory.csv';
+    a.click();
+  };
+
   // Onboarding view
   const OnboardingView = () => (
-  <div className="min-h-screen bg-white p-6">
-    <div className="max-w-md mx-auto space-y-6">
-      <div className="text-center">
-        <h1 className="text-2xl font-bold mb-4">Recovery Ally</h1>
-        <p className="text-gray-600">
-          This tool helps wildfire survivors document lost belongings for insurance claims.
-        </p>
-      </div>
+    <div className="min-h-screen bg-white p-6">
+      <div className="max-w-md mx-auto space-y-6">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Recovery Ally</h1>
+          <p className="text-gray-600">
+            This tool helps wildfire survivors document lost belongings for insurance claims.
+          </p>
+        </div>
 
-      <div className="bg-blue-50 p-4 rounded-lg">
-        <h2 className="font-semibold mb-2">What This Tool Does:</h2>
-        <ul className="space-y-2 text-sm">
-          <li>✅ Organizes lost items **room by room**</li>
-          <li>✅ **Exports to CSV & PDF** for easy insurance submission</li>
-          <li>✅ **Auto-saves** progress to avoid data loss</li>
-          <li>✅ Provides **tips on maximizing claims**</li>
-        </ul>
-      </div>
+        <div className="bg-blue-50 p-4 rounded-lg">
+          <h2 className="font-semibold mb-2">What This Tool Does:</h2>
+          <ul className="space-y-2 text-sm">
+            <li>✅ Organizes lost items **room by room**</li>
+            <li>✅ **Exports to CSV & PDF** for easy insurance submission</li>
+            <li>✅ **Auto-saves** progress to avoid data loss</li>
+            <li>✅ Provides **tips on maximizing claims**</li>
+          </ul>
+        </div>
 
-      <div className="bg-yellow-50 p-4 rounded-lg">
-        <h2 className="font-semibold mb-2">Limitations:</h2>
-        <ul className="space-y-2 text-sm">
-          <li>❌ Does not submit claims directly to insurance companies</li>
-          <li>❌ Does not provide official appraisals</li>
-        </ul>
-      </div>
+        <div className="bg-yellow-50 p-4 rounded-lg">
+          <h2 className="font-semibold mb-2">Limitations:</h2>
+          <ul className="space-y-2 text-sm">
+            <li>❌ Does not submit claims directly to insurance companies</li>
+            <li>❌ Does not provide official appraisals</li>
+          </ul>
+        </div>
 
-      <button
-        onClick={() => setView('rooms')}
-        className="w-full bg-blue-500 text-white rounded-lg p-4"
-      >
-        Start Room-by-Room List
-      </button>
+        <button
+          onClick={() => setView('rooms')}
+          className="w-full bg-blue-500 text-white rounded-lg p-4"
+        >
+          Start Room-by-Room List
+        </button>
+      </div>
     </div>
-  </div>
-);
+  );
+
+  return (
+    <div className="h-screen flex flex-col bg-gray-50">
+      {view === 'onboarding' ? (
+        <OnboardingView />
       ) : (
         <>
           {/* Header */}
@@ -86,7 +96,7 @@ const App = () => {
                 Back
               </button>
             )}
-            <h1 className="text-lg font-semibold">RecoveryAlly</h1>
+            <h1 className="text-lg font-semibold">Recovery Ally</h1>
             <button onClick={exportData} className="text-blue-500">
               <FileText />
             </button>
