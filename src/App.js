@@ -127,7 +127,6 @@ const App = () => {
 
   // Handles selecting a room template and creating initial items
   const handleTemplateSelect = (templateName) => {
-    setSelectedTemplate(templateName);
     const templateItems = [];
     
     // Create items from template
