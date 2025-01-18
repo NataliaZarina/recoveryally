@@ -219,7 +219,10 @@ const App = () => {
             <div className="max-w-2xl mx-auto space-y-8">
               {/* Header Section */}
               <div className="text-center space-y-4">
-                <h1 className="text-4xl font-bold text-blue-600">RecoveryAlly</h1>
+              <div className="flex items-center justify-center">
+                  <Home className="w-8 h-8 mr-2 text-blue-600" />
+                    <h1 className="text-4xl font-bold text-blue-600">RecoveryAlly</h1>
+              </div>
                 <p className="text-xl text-gray-600">
                   We'll help you document your losses for insurance claims.
                 </p>
@@ -586,7 +589,10 @@ const App = () => {
     
                     {/* Photo Upload */}
                     <div>
-                      <label className="block text-sm font-medium mb-2">Photos</label>
+                    <label className="block text-sm font-medium mb-2 flex items-center">
+                      <Camera className="w-5 h-5 mr-2" />
+                       Photos
+                    </label>
                       <div className="grid grid-cols-4 gap-2 mb-2">
                         {itemToEdit.photos?.map((photo, index) => (
                           <div key={index} className="relative">
