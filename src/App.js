@@ -108,7 +108,6 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
   
   // Tracks which room template is selected
-  const [selectedTemplate, setSelectedTemplate] = useState(null);
 
   // === AUTO-SAVE FUNCTIONALITY ===
   // Automatically saves items to localStorage whenever they change
@@ -598,7 +597,7 @@ const App = () => {
                           <div key={index} className="relative">
                             <img
                               src={photo.data}
-                              alt={`Item photo ${index + 1}`}
+                              alt={`Item ${index + 1}`}
                               className="w-full h-24 object-cover rounded"
                             />
                             <button
@@ -852,11 +851,26 @@ const App = () => {
             </div>
           </div>
         );
-    }
-  };        
 
-  // Render the current view
-  return renderView();
-};
-
-export default App;
+      default:
+          return (
+            <div className="min-h-screen bg-white p-4">
+              <div className="max-w-2xl mx-auto text-center">
+                <h2 className="text-xl font-semibold">Invalid View</h2>
+                <button
+                  onClick={() => setView('onboarding')}
+                  className="mt-4 text-blue-600 hover:text-blue-800"
+                >
+                  Go Home
+                </button>
+              </div>
+            </div>
+          );
+      }
+    };        
+  
+    // Render the current view
+    return renderView();
+  };
+  
+  export default App;
