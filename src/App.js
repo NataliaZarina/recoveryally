@@ -25,57 +25,207 @@ const depreciationRates = {
 const roomTemplates = {
   'Living Room': {
     'Furniture': [
-      { name: 'Sofa', category: 'Furniture', typical_value: 1200 },
-      { name: 'Armchairs', category: 'Furniture', typical_value: 800 },
+      { name: 'Sectional Sofa', category: 'Furniture', typical_value: 2000 },
+      { name: 'Loveseat', category: 'Furniture', typical_value: 800 },
+      { name: 'Armchair', category: 'Furniture', typical_value: 500 },
+      { name: 'Recliner', category: 'Furniture', typical_value: 700 },
       { name: 'Coffee Table', category: 'Furniture', typical_value: 400 },
+      { name: 'End Table', category: 'Furniture', typical_value: 150 },
+      { name: 'Console Table', category: 'Furniture', typical_value: 300 },
       { name: 'TV Stand', category: 'Furniture', typical_value: 600 },
-      { name: 'Bookshelves', category: 'Furniture', typical_value: 300 }
-      // Add more furniture items here
+      { name: 'Bookshelf', category: 'Furniture', typical_value: 300 },
+      { name: 'Storage Ottoman', category: 'Furniture', typical_value: 200 },
+      { name: 'Bar Cart', category: 'Furniture', typical_value: 250 },
+      { name: 'Floor Lamp', category: 'Furniture', typical_value: 100 },
+      { name: 'Table Lamp', category: 'Furniture', typical_value: 75 }
     ],
     'Electronics': [
-      { name: 'TV', category: 'Electronics', typical_value: 1000 },
-      { name: 'Sound System', category: 'Electronics', typical_value: 500 },
-      { name: 'Gaming Console', category: 'Electronics', typical_value: 400 }      // Add more electronics items here
+      { name: 'Smart TV 65"', category: 'Electronics', typical_value: 1200 },
+      { name: 'Soundbar with Subwoofer', category: 'Electronics', typical_value: 800 },
+      { name: 'Gaming Console', category: 'Electronics', typical_value: 500 },
+      { name: 'Streaming Device', category: 'Electronics', typical_value: 100 },
+      { name: 'Smart Home Hub', category: 'Electronics', typical_value: 100 },
+      { name: 'Remote Control', category: 'Electronics', typical_value: 50 },
+      { name: 'WiFi Router', category: 'Electronics', typical_value: 200 },
+      { name: 'Power Strip Surge Protector', category: 'Electronics', typical_value: 50 }
     ],
     'Decor': [
-      { name: 'Area Rug', category: 'Decor', typical_value: 400 },
-      { name: 'Curtains', category: 'Decor', typical_value: 200 },
-      { name: 'Art/Pictures', category: 'Art', typical_value: 300 }
+      { name: 'Large Area Rug', category: 'Decor', typical_value: 800 },
+      { name: 'Window Treatment Set', category: 'Decor', typical_value: 200 },
+      { name: 'Wall Art Piece', category: 'Art', typical_value: 250 },
+      { name: 'Decorative Mirror', category: 'Decor', typical_value: 200 },
+      { name: 'Throw Pillow', category: 'Decor', typical_value: 40 },
+      { name: 'Throw Blanket', category: 'Decor', typical_value: 50 },
+      { name: 'Decorative Vase', category: 'Decor', typical_value: 60 },
+      { name: 'Artificial Plant', category: 'Decor', typical_value: 100 },
+      { name: 'Candle Set', category: 'Decor', typical_value: 40 },
+      { name: 'Bookends', category: 'Decor', typical_value: 30 }
+    ],
+    'Entertainment': [
+      { name: 'Board Game', category: 'Entertainment', typical_value: 30 },
+      { name: 'Video Game', category: 'Entertainment', typical_value: 60 },
+      { name: 'Book', category: 'Entertainment', typical_value: 20 },
+      { name: 'Blu-ray/DVD', category: 'Entertainment', typical_value: 25 }
     ]
   },
   'Kitchen': {
-    'Appliances': [
-      { name: 'Refrigerator', category: 'Appliances', typical_value: 2000 },
-      { name: 'Stove', category: 'Appliances', typical_value: 1200 },
+    'Major Appliances': [
+      { name: 'Refrigerator', category: 'Appliances', typical_value: 2500 },
+      { name: 'Range/Stove', category: 'Appliances', typical_value: 1500 },
       { name: 'Dishwasher', category: 'Appliances', typical_value: 800 },
-      { name: 'Microwave', category: 'Appliances', typical_value: 300 }
+      { name: 'Microwave', category: 'Appliances', typical_value: 400 },
+      { name: 'Range Hood', category: 'Appliances', typical_value: 500 },
+      { name: 'Wine Fridge', category: 'Appliances', typical_value: 500 }
     ],
     'Small Appliances': [
       { name: 'Coffee Maker', category: 'Appliances', typical_value: 100 },
-      { name: 'Toaster', category: 'Appliances', typical_value: 50 },
-      { name: 'Blender', category: 'Appliances', typical_value: 100 },
-      { name: 'Food Processor', category: 'Appliances', typical_value: 150 }
+      { name: 'Espresso Machine', category: 'Appliances', typical_value: 400 },
+      { name: 'Stand Mixer', category: 'Appliances', typical_value: 400 },
+      { name: 'Food Processor', category: 'Appliances', typical_value: 200 },
+      { name: 'Blender', category: 'Appliances', typical_value: 150 },
+      { name: 'Toaster', category: 'Appliances', typical_value: 80 },
+      { name: 'Air Fryer', category: 'Appliances', typical_value: 150 },
+      { name: 'Instant Pot', category: 'Appliances', typical_value: 150 },
+      { name: 'Electric Kettle', category: 'Appliances', typical_value: 80 },
+      { name: 'Rice Cooker', category: 'Appliances', typical_value: 100 },
+      { name: 'Waffle Maker', category: 'Appliances', typical_value: 60 },
+      { name: 'Hand Mixer', category: 'Appliances', typical_value: 50 }
     ],
-    'Kitchen Items': [
-      { name: 'Cookware Set', category: 'Kitchen', typical_value: 400 },
-      { name: 'Dinnerware Set', category: 'Kitchen', typical_value: 300 },
-      { name: 'Utensils', category: 'Kitchen', typical_value: 200 }
+    'Cookware': [
+      { name: 'Large Pot', category: 'Kitchen', typical_value: 100 },
+      { name: 'Medium Pot', category: 'Kitchen', typical_value: 80 },
+      { name: 'Small Pot', category: 'Kitchen', typical_value: 60 },
+      { name: 'Large Pan', category: 'Kitchen', typical_value: 100 },
+      { name: 'Medium Pan', category: 'Kitchen', typical_value: 80 },
+      { name: 'Small Pan', category: 'Kitchen', typical_value: 60 },
+      { name: 'Dutch Oven', category: 'Kitchen', typical_value: 300 },
+      { name: 'Cast Iron Skillet', category: 'Kitchen', typical_value: 100 },
+      { name: 'Wok', category: 'Kitchen', typical_value: 80 },
+      { name: 'Chef Knife', category: 'Kitchen', typical_value: 150 },
+      { name: 'Knife Set', category: 'Kitchen', typical_value: 300 },
+      { name: 'Cutting Board', category: 'Kitchen', typical_value: 50 },
+      { name: 'Mixing Bowl Set', category: 'Kitchen', typical_value: 100 },
+      { name: 'Measuring Cups/Spoons', category: 'Kitchen', typical_value: 30 }
+    ],
+    'Dining': [
+      { name: 'Dinner Plate', category: 'Kitchen', typical_value: 20 },
+      { name: 'Salad Plate', category: 'Kitchen', typical_value: 15 },
+      { name: 'Bowl', category: 'Kitchen', typical_value: 15 },
+      { name: 'Mug', category: 'Kitchen', typical_value: 10 },
+      { name: 'Wine Glass', category: 'Kitchen', typical_value: 15 },
+      { name: 'Water Glass', category: 'Kitchen', typical_value: 10 },
+      { name: 'Fork', category: 'Kitchen', typical_value: 5 },
+      { name: 'Knife', category: 'Kitchen', typical_value: 5 },
+      { name: 'Spoon', category: 'Kitchen', typical_value: 5 },
+      { name: 'Serving Bowl', category: 'Kitchen', typical_value: 50 },
+      { name: 'Serving Platter', category: 'Kitchen', typical_value: 60 },
+      { name: 'Storage Container', category: 'Kitchen', typical_value: 15 }
     ]
   },
-  'Bedroom': {
+  'Master Bedroom': {
     'Furniture': [
-      { name: 'Bed Frame', category: 'Furniture', typical_value: 800 },
-      { name: 'Mattress', category: 'Furniture', typical_value: 1000 },
-      { name: 'Dresser', category: 'Furniture', typical_value: 600 },
-      { name: 'Nightstands', category: 'Furniture', typical_value: 300 }
+      { name: 'King Bed Frame', category: 'Furniture', typical_value: 1200 },
+      { name: 'King Mattress', category: 'Furniture', typical_value: 2000 },
+      { name: 'Nightstand', category: 'Furniture', typical_value: 200 },
+      { name: 'Dresser', category: 'Furniture', typical_value: 800 },
+      { name: 'Chest of Drawers', category: 'Furniture', typical_value: 600 },
+      { name: 'Armoire', category: 'Furniture', typical_value: 700 },
+      { name: 'Vanity', category: 'Furniture', typical_value: 500 },
+      { name: 'Mirror', category: 'Furniture', typical_value: 200 },
+      { name: 'Bench', category: 'Furniture', typical_value: 300 }
+    ],
+    'Bedding': [
+      { name: 'Mattress Pad', category: 'Bedding', typical_value: 100 },
+      { name: 'Sheet Set', category: 'Bedding', typical_value: 150 },
+      { name: 'Comforter', category: 'Bedding', typical_value: 200 },
+      { name: 'Duvet', category: 'Bedding', typical_value: 150 },
+      { name: 'Pillow', category: 'Bedding', typical_value: 50 },
+      { name: 'Decorative Pillow', category: 'Bedding', typical_value: 40 },
+      { name: 'Throw Blanket', category: 'Bedding', typical_value: 50 }
     ],
     'Electronics': [
-      { name: 'TV', category: 'Electronics', typical_value: 500 },
-      { name: 'Lamps', category: 'Electronics', typical_value: 100 }
+      { name: 'TV', category: 'Electronics', typical_value: 800 },
+      { name: 'Sound Machine', category: 'Electronics', typical_value: 50 },
+      { name: 'Alarm Clock', category: 'Electronics', typical_value: 30 },
+      { name: 'Phone Charger', category: 'Electronics', typical_value: 20 },
+      { name: 'Air Purifier', category: 'Electronics', typical_value: 200 }
     ],
-    'Personal Items': [
-      { name: 'Clothing', category: 'Clothing', typical_value: 2000 },
-      { name: 'Jewelry', category: 'Jewelry', typical_value: 1000 }
+    'Storage': [
+      { name: 'Closet Organizer', category: 'Storage', typical_value: 200 },
+      { name: 'Shoe Rack', category: 'Storage', typical_value: 100 },
+      { name: 'Jewelry Box', category: 'Storage', typical_value: 100 },
+      { name: 'Storage Bins', category: 'Storage', typical_value: 30 }
+    ]
+  },
+  'Bathroom': {
+    'Electronics': [
+      { name: 'Hair Dryer', category: 'Electronics', typical_value: 100 },
+      { name: 'Electric Toothbrush', category: 'Electronics', typical_value: 150 },
+      { name: 'Hair Styling Tool', category: 'Electronics', typical_value: 100 },
+      { name: 'Scale', category: 'Electronics', typical_value: 50 }
+    ],
+    'Fixtures': [
+      { name: 'Mirror', category: 'Fixtures', typical_value: 200 },
+      { name: 'Shower Head', category: 'Fixtures', typical_value: 150 },
+      { name: 'Toilet Paper Holder', category: 'Fixtures', typical_value: 30 },
+      { name: 'Towel Bars', category: 'Fixtures', typical_value: 40 },
+      { name: 'Shower Curtain Rod', category: 'Fixtures', typical_value: 30 }
+    ],
+    'Linens': [
+      { name: 'Bath Towel', category: 'Linens', typical_value: 30 },
+      { name: 'Hand Towel', category: 'Linens', typical_value: 15 },
+      { name: 'Washcloth', category: 'Linens', typical_value: 10 },
+      { name: 'Bath Mat', category: 'Linens', typical_value: 30 },
+      { name: 'Shower Curtain', category: 'Linens', typical_value: 50 }
+    ]
+  },
+  'Home Office': {
+    'Furniture': [
+      { name: 'Desk', category: 'Furniture', typical_value: 500 },
+      { name: 'Office Chair', category: 'Furniture', typical_value: 800 },
+      { name: 'Filing Cabinet', category: 'Furniture', typical_value: 200 },
+      { name: 'Bookshelf', category: 'Furniture', typical_value: 300 },
+      { name: 'Desk Lamp', category: 'Furniture', typical_value: 100 }
+    ],
+    'Electronics': [
+      { name: 'Computer/Laptop', category: 'Electronics', typical_value: 1500 },
+      { name: 'Monitor', category: 'Electronics', typical_value: 400 },
+      { name: 'Printer', category: 'Electronics', typical_value: 300 },
+      { name: 'Scanner', category: 'Electronics', typical_value: 200 },
+      { name: 'External Hard Drive', category: 'Electronics', typical_value: 100 },
+      { name: 'Webcam', category: 'Electronics', typical_value: 100 },
+      { name: 'Microphone', category: 'Electronics', typical_value: 150 },
+      { name: 'USB Hub', category: 'Electronics', typical_value: 50 }
+    ],
+    'Supplies': [
+      { name: 'Paper Shredder', category: 'Office', typical_value: 100 },
+      { name: 'Stapler', category: 'Office', typical_value: 20 },
+      { name: 'Hole Punch', category: 'Office', typical_value: 20 },
+      { name: 'File Organizer', category: 'Office', typical_value: 30 }
+    ]
+  },
+    'Garage': {
+    'Tools': [
+      { name: 'Power Drill', category: 'Tools', typical_value: 200 },
+      { name: 'Circular Saw', category: 'Tools', typical_value: 150 },
+      { name: 'Table Saw', category: 'Tools', typical_value: 600 },
+      { name: 'Hammer', category: 'Tools', typical_value: 30 },
+      { name: 'Screwdriver Set', category: 'Tools', typical_value: 100 },
+      { name: 'Wrench Set', category: 'Tools', typical_value: 150 },
+      { name: 'Power Tools Set', category: 'Tools', typical_value: 1200 },
+      { name: 'Hand Tools Set', category: 'Tools', typical_value: 600 },
+      { name: 'Lawn Equipment Set', category: 'Tools', typical_value: 1000 },
+      { name: 'Tool Storage Units', category: 'Tools', typical_value: 500 }
+    ],
+    'Storage': [
+      { name: 'Storage Shelving Units', category: 'Storage', typical_value: 400 },
+      { name: 'Storage Bins', category: 'Storage', typical_value: 300 },
+      { name: 'Workbench Setup', category: 'Storage', typical_value: 500 }
+    ],
+    'Recreation': [
+      { name: 'Bicycles', category: 'Sports', typical_value: 1200 },
+      { name: 'Camping Gear Set', category: 'Sports', typical_value: 1000 },
+      { name: 'Sports Equipment Collection', category: 'Sports', typical_value: 800 },
     ]
   }
   // Add more rooms as needed
